@@ -1,5 +1,7 @@
 # 抖音支付接入集成 Skill (Douyin Pay Payment Integration Skill)
 
+[![skills.sh](https://skills.sh/b/douyinpay/douyinpay-skills)](https://skills.sh/douyinpay/douyinpay-skills)
+
 抖音支付为 AI Agent 提供了专业的技能包（Skills），将产品的业务知识、代码示例和接入规范以 Agent 可理解的方式组织，使 Agent 能够准确地协助开发者完成抖音支付的接入工作。
 
 本 Skill 对应抖音支付的各项产品接入场景（如 APP 支付、H5 支付、JSAPI 支付、Native 支付等），包含：
