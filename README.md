@@ -46,4 +46,7 @@
 
 ## 交流与反馈
 
-在使用过程中遇到问题、有改进建议，或者想和其他开发者交流接入经验，欢迎提交 Issue 或联系抖音支付官方技术支持团队（抖音支付·商家平台 官网地址：https://pay.douyinpay.com/ ）。
+在使用过程中遇到问题、有改进建议，或者想和其他开发者交流接入经验，欢迎提交 Issue（https://github.com/douyinpay/douyinpay-skills/issues） 或联系抖音支付官方技术支持团队，联系方式见下：
+1. 抖音支付·商家平台 官网地址：https://pay.douyinpay.com/  
+2. 抖音支付SKills交流话题群（飞书群）：https://applink.larkoffice.com/client/chat/chatter/add_by_link?link_token=8fcu3a32-281f-41fe-9e06-3b3a06bb365a
+

@@ -3,7 +3,7 @@ name: douyinpay-payment-integration
 description: >-
   抖音支付（DouyinPay）端到端接入集成助手。提供支付产品选型、前置准备引导、
   服务端SDK集成（Go/Java/PHP）、签名验签、代码生成与接入质量校验的全流程支持。
-  覆盖 APP支付、JSAPI支付、H5支付、Native支付等核心支付产品，
+  覆盖 APP支付、JSAPI支付、H5支付、Native支付、分账等核心产品，
   以及退款、账单、回调通知、证书管理、错误码排查等配套能力。
   当用户提到"抖音支付"、"DouyinPay"、"抖音Pay"、"抖音支付商家平台"，
   或涉及抖音支付官方域名 pay.douyinpay.com，api.douyinpay.com
@@ -128,6 +128,7 @@ bash scripts/gen_rsa_key.sh [--bits 2048] [--out-dir ./certs]
 | 抖音端内网页 | 抖音App内打开的H5页面调起支付模块 | JSAPI、抖音内H5、抖音内嵌页 | **JSAPI支付** |
 | 手机浏览器网页 | 抖音客户端外的移动端H5页面唤起抖音支付 | H5支付、WAP支付、手机网站、移动端网页 | **H5支付** |
 | PC浏览器网页 | PC网站展示二维码，用户抖音扫码支付 | Native支付、PC支付、扫码支付、主扫 | **Native支付** |
+| 将商家收款资金分账给合作方 | 订单支付成功后，资金被冻结，待后续进行资金分账 | 商家分账、订单分账、资金冻结、账期管理 | **商家分账** |
 
 非以上典型场景可使用 `search_docs` 工具先检索相关信息再推荐产品。
 
@@ -148,6 +149,9 @@ bash scripts/gen_rsa_key.sh [--bits 2048] [--out-dir ./certs]
 4. 线上Native支付
     - 适用于PC浏览器展示二维码，用户用抖音App扫码支付
 
+5. 商家分账
+    - 适用于需要进行资金分账以及账期管理的场景，订单支付成功后，资金被冻结，后续进行资金分账
+
 请描述您的具体业务需求？
 ```
 
@@ -165,6 +169,7 @@ bash scripts/gen_rsa_key.sh [--bits 2048] [--out-dir ./certs]
 | H5支付 | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/63f440df0b970c020906f19f | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/63f440f0fd0b2e0220f37e2c |
 | JSAPI支付 | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/64413dd23561e20220151a0e | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/64413ea463418a0236568261 |
 | Native支付 | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/65bf8db6ea861802f2723be7 | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/65bf8dc18e89660318e77c1f |
+| 商家分账 | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/69492c421fb1180636728e5b | https://pay.douyinpay.com/wiki/63984677e9a722021c2c882e/694931331fb118063672b6d0 |
 
 非以上产品可使用 `search_docs` 工具先检索相关信息。
 
