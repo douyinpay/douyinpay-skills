@@ -21,8 +21,10 @@
 | `YOUR_MCH_ID` | 商户号，注册并入驻抖音支付商家平台后获取 |
 | `YOUR_APP_ID` | 应用 AppID（需先在商家平台-产品中心-AppID管理中绑定） |
 | `YOUR_PRIVATE_KEY_PATH` | 商家公钥证书（RSA）对应的私钥文件路径 |
+| `YOUR_PRIVATE_KEY_PEM` | 商家公钥证书（RSA）对应的私钥 PEM 内容；适用于通过环境变量直接传入私钥内容的场景 |
 | `YOUR_MERCHANT_CERT_SERIAL_NO` | 商家公钥证书序列号（HTTP Authorization 头中的 `serial_no`） |
 | `YOUR_PUBLIC_KEY_PATH` | 平台提供的抖音支付公钥证书文件路径（用于回调验签） |
+| `YOUR_PUBLIC_KEY_PEM` | 平台提供的抖音支付公钥证书 PEM 内容；适用于通过环境变量直接传入平台证书内容并用于回调验签的场景 |
 | `YOUR_API_ENCRYPT_KEY` | 接口加密密钥（对称密钥，用于 AES-256-GCM 解密回调报文中的敏感信息） |
 | `YOUR_NOTIFY_URL` | 支付结果回调通知地址（必须 https、公网可访问、不能携带参数，[详见文档](https://pay.douyinpay.com/wiki/66aa57118a7da602efb9bc2f/69bd121735060b0581d2ea46)） |
 | `YOUR_RETURN_URL` | 前端跳转返回地址（H5支付场景） |
@@ -74,16 +76,17 @@
 
 ### 2.1 服务端 SDK
 
-目前提供Go、Java、PHP三种语言的官方SDK。在生成项目依赖配置（如 `go.mod`、`pom.xml`、`composer.json`）时，**必须获取真实的最新版本号（如 Maven 坐标版本、Go 仓库 Tag 等）**。
+目前提供 Go、Java、PHP、Node.js 四种语言的官方 SDK。在生成项目依赖配置（如 `go.mod`、`pom.xml`、`composer.json`、`package.json`）时，**必须获取真实的最新版本号（如 Maven 坐标版本、Go 仓库 Tag、npm 版本等）**。
 
 **获取真实版本号的指令动作：**
 
 1. 优先调用 `search_docs` 工具（即 `bash scripts/search_docs.sh "<query>"`）查阅官方接入文档中的依赖引入示例，提取其中的版本号。
-2. 若文档中未明确标出最新版本，**必须**前往对应的代码仓库获取最新 Release 版本。例如：
+2. 若文档中未明确标出最新版本，**必须**前往对应的代码仓库或公开包管理仓库获取最新 Release / 包版本。例如：
    - Go：通过搜索 `github.com/douyinpay/douyinpay-go` 查找最新的 Tag。
    - Java：通过搜索 Maven 中央仓库 `central.sonatype.com/artifact/io.github.douyinpay/douyinpay-java` 获取对应的最新坐标版本。
+   - Node.js：当前使用公开 npm 包 `@douyinpay_sdk/douyinpay-nodejs`，安装命令为 `npm i @douyinpay_sdk/douyinpay-nodejs`；必须以 npm 包页面（`https://www.npmjs.com/package/@douyinpay_sdk/douyinpay-nodejs`）或 npm registry 查询结果为准确认最新版本、Node 引擎要求、CommonJS / ESM 导出方式和 API 示例。
 
-注意：**严禁自行编造或幻觉产生版本号**（**绝对不要使用** `v0.0.0-latest`、`1.0.0` 等未经查证的错误占位符）。必须在输出代码前完成版本号的准确查询。
+注意：**严禁自行编造或幻觉产生版本号**（**绝对不要使用** `v0.0.0-latest`、`1.0.0`、`latest` 等未经查证的错误占位符）。必须在输出代码前完成版本号的准确查询。
 
 ### 2.2 客户端 SDK
 
@@ -109,7 +112,7 @@
 
 ### 2.4 无官方 SDK 的语言
 
-对于官方 SDK 的语言：
+对于无官方 SDK 的语言：
 
 - 使用 HTTP 协议直接调用抖音支付 API
 - 需要自行实现签名与验签逻辑
